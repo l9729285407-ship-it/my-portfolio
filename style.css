@@ -1,0 +1,38 @@
+body {
+    background-color: #0f172a;
+    color: white;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    scroll-behavior: smooth;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 50px;
+    background: #1e293b;
+}
+
+nav ul { display: flex; list-style: none; gap: 20px; }
+nav a { color: white; text-decoration: none; font-weight: bold; }
+
+section { padding: 100px 50px; text-align: center; border-bottom: 1px solid #334155; }
+
+.name { color: #3b82f6; }
+
+.skills-grid span {
+    background: #3b82f6;
+    padding: 10px 20px;
+    margin: 5px;
+    display: inline-block;
+    border-radius: 5px;
+}
+
+.project-container { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+.project-card {
+    background: #1e293b;
+    padding: 20px;
+    border-radius: 10px;
+    width: 250px;
+    border: 1px solid #3b82f6;
+}

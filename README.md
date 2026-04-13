@@ -27,3 +27,7 @@ Welcome to my professional portfolio! I am a B.Tech student specializing in AI/M
 
 ---
 *Created with ❤️ by Lavish*
+
+"Developed a machine learning model using Linear Regression to predict housing prices. The project involves data preprocessing, feature selection (like square footage and number of rooms), and model evaluation using Scikit-Learn. It demonstrates how AI can be used for predictive analytics in the real estate market."
+
+"Built a computer vision application using OpenCV that detects human faces in real-time via webcam. The system utilizes the Haar Cascade Classifier algorithm to identify facial features and draw bounding boxes. This project showcases expertise in image processing and live data handling."

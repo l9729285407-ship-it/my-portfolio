@@ -71,15 +71,24 @@
         <div class="project-visual-card">
             <div style="display: flex; justify-content: space-between; align-items: center;">
                 <h2>📷 Real-Time Face Detection</h2>
-                <span class="project-tag">Computer Vision Output</span>
+                <span class="project-tag">Computer Vision Logic</span>
             </div>
-            <p><strong>Model Output:</strong> Yeh camera feed par Haar-Cascade classifier apply karne ka result hai. Model chehre ko identify karke uspar green bounding box draw karta hai.</p>
+            <p><strong>Model Output:</strong> Yeh system OpenCV ka use karke facial features ko identify karta hai. Niche "Start Live Scan" par click karke dekhein model kaise kaam karta hai.</p>
             
             <div class="simulation-container">
-                <span class="sim-title">Camera Feed Simulation</span>
-                <div class="camera-box">
-                    <div class="face-box"></div> </div>
-                <p style="margin-top:10px; font-size:0.9rem; color:#444;"><span class="status-dot"></span>Model Active | Detecting 1 Face</p>
+                <span class="sim-title">AI Vision Simulator</span>
+                
+                <div class="camera-box" id="scannerContainer" style="background-image: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?fit=crop&w=400&h=250&q=80'); filter: grayscale(100%); transition: 0.5s; position: relative; height: 250px; background-size: cover; border-radius: 10px;">
+                    <div id="scanLine" style="display:none; position:absolute; width:100%; height:2px; background:#00ff00; box-shadow:0 0 15px #00ff00; top:0; animation: scan 2s infinite linear;"></div>
+                    
+                    <div id="faceBox" style="display:none; position: absolute; border: 4px solid #00ff00; top: 20%; left: 30%; width: 40%; height: 50%; box-shadow: 0 0 15px rgba(0,255,0,0.5);">
+                        <span style="position:absolute; top:-25px; left:0; color:#00ff00; font-size:12px; font-weight:bold; background:rgba(0,0,0,0.5); padding:2px 5px;">FACE ID: 0812_LAVISH</span>
+                    </div>
+                </div>
+
+                <button class="view-btn" id="scanBtn" onclick="startScanning()" style="background:#00ff00; color:#000; font-weight:bold; margin-top:20px; padding: 10px 20px; border: none; border-radius: 8px; cursor: pointer;">▶ START LIVE SCAN</button>
+                
+                <p id="statusText" style="margin-top:10px; font-size:0.9rem; color:#666;">Status: System Idle</p>
             </div>
         </div>
 
@@ -110,4 +119,42 @@
         }
     </script>
 </body>
+    <script>
+    /* 1. House Price Simulator Logic */
+    function updatePrice() {
+        var slider = document.getElementById("priceSlider");
+        var areaOutput = document.getElementById("areaValue");
+        var priceOutput = document.getElementById("predictedPrice");
+        var area = slider.value;
+        areaOutput.innerHTML = area;
+        var calculatedPrice = 50000 + (area * 150);
+        priceOutput.innerHTML = calculatedPrice.toLocaleString();
+    }
+
+    /* 2. Face Detection Simulator Logic */
+    function startScanning() {
+        const btn = document.getElementById('scanBtn');
+        const line = document.getElementById('scanLine');
+        const face = document.getElementById('faceBox');
+        const status = document.getElementById('statusText');
+        const container = document.getElementById('scannerContainer');
+
+        btn.disabled = true;
+        btn.innerHTML = "⌛ ANALYZING PIXELS...";
+        line.style.display = "block";
+        face.style.display = "none";
+        container.style.filter = "grayscale(100%)";
+        status.innerHTML = "Status: Running Haar-Cascade Classifier...";
+        
+        setTimeout(() => {
+            line.style.display = "none";
+            face.style.display = "block";
+            container.style.filter = "grayscale(0%)"; 
+            status.innerHTML = "<span style='color:#008000;'>✔️ Status: Face Detected (Confidence: 98.4%)</span>";
+            btn.innerHTML = "RE-SCAN SYSTEM";
+            btn.disabled = false;
+            btn.style.background = "#00d4ff";
+        }, 3000); 
+    }
+</script>
 </html>

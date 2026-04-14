@@ -1,75 +1,88 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700&display=swap');
 
 :root {
-    --bg: #030014;
-    --primary: #7000ff;
-    --secondary: #c471ed;
-    --glass: rgba(255, 255, 255, 0.03);
+    --primary: #001f3f; 
+    --accent: #00d4ff;  
+    --silver: #e2e8f0;
+    --card-bg: #ffffff;
 }
 
 body {
-    font-family: 'Space Grotesk', sans-serif;
-    background-color: var(--bg);
-    color: white;
+    font-family: 'Outfit', sans-serif;
     margin: 0;
-    overflow-x: hidden;
+    background: #f4f7fa;
+    display: flex;
 }
 
-/* Background Stickers (Decorative) */
-body::before {
-    content: "01010101"; position: fixed; top: 20%; left: -5%;
-    font-size: 10rem; color: rgba(112, 0, 255, 0.05); z-index: -1; transform: rotate(-20deg);
-}
-
+/* Sidebar Nav */
 nav {
-    display: flex; justify-content: space-between; padding: 30px 10%;
-    background: rgba(3, 0, 20, 0.8); backdrop-filter: blur(20px);
-    position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid rgba(255,255,255,0.1);
+    width: 220px;
+    height: 100vh;
+    background: var(--primary);
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    padding: 40px 20px;
+    box-shadow: 4px 0 15px rgba(0,0,0,0.1);
 }
 
-.logo { font-size: 1.8rem; font-weight: bold; background: linear-gradient(to right, #7000ff, #c471ed); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+nav .logo { color: var(--accent); font-size: 2rem; font-weight: bold; margin-bottom: 50px; border-bottom: 2px solid var(--accent); }
 
-.container { max-width: 1100px; margin: auto; padding: 40px 20px; }
-
-/* Projects Section */
-.project-grid {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px;
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-bottom: 30px;
+    font-weight: 500;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }
 
-.project-card {
-    background: var(--glass);
-    border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 24px;
-    padding: 40px;
-    transition: 0.5s;
-    cursor: pointer;
-    text-align: left;
+nav a:hover { color: var(--accent); transform: scale(1.1); }
+
+/* Main Content Area */
+.main-content {
+    margin-left: 260px;
+    width: calc(100% - 260px);
+    padding: 50px;
 }
 
-.project-card:hover {
-    background: rgba(112, 0, 255, 0.1);
-    border-color: var(--primary);
-    transform: translateY(-10px);
+/* Dashboard Style Cards */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
 }
 
-.icon-box {
-    width: 60px; height: 60px; background: rgba(112, 0, 255, 0.2);
-    border-radius: 15px; display: flex; align-items: center; justify-content: center;
-    font-size: 2rem; margin-bottom: 20px;
+.stat-card {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    border-top: 4px solid var(--accent);
 }
 
-/* Modal Pop-up */
-.modal {
-    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0,0,0,0.85); backdrop-filter: blur(10px); z-index: 2000;
+.hero-box {
+    background: var(--primary);
+    color: white;
+    padding: 80px 50px;
+    border-radius: 30px;
+    margin-bottom: 40px;
+    position: relative;
+    overflow: hidden;
 }
 
-.modal-content {
-    background: #0b061e; width: 80%; max-width: 600px; margin: 10% auto;
-    padding: 40px; border-radius: 30px; border: 1px solid var(--primary);
-    position: relative; box-shadow: 0 0 50px rgba(112, 0, 255, 0.3);
+.hero-box::after {
+    content: "🤖"; font-size: 10rem; position: absolute; right: -20px; bottom: -20px; opacity: 0.1;
 }
 
-.close-btn { position: absolute; top: 20px; right: 30px; font-size: 2rem; cursor: pointer; color: var(--primary); }
-
-.tag { background: rgba(196, 113, 237, 0.1); color: #c471ed; padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; margin-right: 10px; }
+.badge {
+    background: rgba(0, 212, 255, 0.2);
+    color: var(--accent);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}

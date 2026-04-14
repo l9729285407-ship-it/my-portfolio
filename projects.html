@@ -7,22 +7,30 @@
 </head>
 <body>
     <nav>
-        <a href="index.html">Home</a>
-        <a href="about.html">About Me</a>
-        <a href="projects.html">Projects</a>
+        <div class="logo">LAVISH<span>.AI</span></div>
+        <div class="menu">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="projects.html">Projects</a>
+        </div>
     </nav>
-    <section class="container">
-        <h2>My Projects</h2>
-        
-        <div class="project-card">
-            <h3>1. House Price Prediction</h3>
-            <p>Developed a model to predict real estate prices using Linear Regression. Analyzed data features like area and location to provide accurate cost estimations.</p>
-        </div>
 
-        <div class="project-card" style="margin-top:20px;">
-            <h3>2. Face Detection System</h3>
-            <p>Built a real-time system using OpenCV to detect human faces through a webcam feed. Uses advanced image processing to identify facial structures.</p>
+    <div class="container">
+        <h2 class="section-title">🚀 Featured Projects</h2>
+        
+        <div class="project-list">
+            <div class="project-card">
+                <div class="project-icon">🏠</div>
+                <h3>House Price Prediction</h3>
+                <p>An advanced regression model that calculates property values based on historical trends, location, and area features. Built using Scikit-Learn.</p>
+            </div>
+
+            <div class="project-card">
+                <div class="project-icon">📷</div>
+                <h3>Face Detection System</h3>
+                <p>A real-time vision system that identifies human faces through webcam streams. Focused on high accuracy and low-latency detection using OpenCV.</p>
+            </div>
         </div>
-    </section>
+    </div>
 </body>
 </html>

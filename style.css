@@ -1,38 +1,7 @@
-body {
-    background-color: #0f172a;
-    color: white;
-    font-family: Arial, sans-serif;
-    margin: 0;
-    scroll-behavior: smooth;
-}
-
-nav {
-    display: flex;
-    justify-content: space-between;
-    padding: 20px 50px;
-    background: #1e293b;
-}
-
-nav ul { display: flex; list-style: none; gap: 20px; }
-nav a { color: white; text-decoration: none; font-weight: bold; }
-
-section { padding: 100px 50px; text-align: center; border-bottom: 1px solid #334155; }
-
-.name { color: #3b82f6; }
-
-.skills-grid span {
-    background: #3b82f6;
-    padding: 10px 20px;
-    margin: 5px;
-    display: inline-block;
-    border-radius: 5px;
-}
-
-.project-container { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
-.project-card {
-    background: #1e293b;
-    padding: 20px;
-    border-radius: 10px;
-    width: 250px;
-    border: 1px solid #3b82f6;
-}
+body { font-family: Arial, sans-serif; margin: 0; background: #f4f7f9; color: #333; }
+nav { background: #003366; padding: 15px; text-align: center; }
+nav a { color: white; text-decoration: none; margin: 0 15px; font-weight: bold; }
+header { text-align: center; padding: 100px 20px; background: white; }
+.container { max-width: 800px; margin: 50px auto; padding: 20px; background: white; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+.btn { display: inline-block; padding: 10px 20px; background: #00509d; color: white; text-decoration: none; border-radius: 5px; margin-top: 20px; }
+.project-card { padding: 20px; border-left: 5px solid #003366; background: #f9f9f9; }

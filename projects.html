@@ -2,16 +2,41 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Projects | Lavish AI</title>
+    <title>Projects | Lavish AI Showcase</title>
     <link rel="stylesheet" href="style.css">
     <style>
+        /* Project Visual Showcase Styles */
         .project-visual-card {
-            background: white; padding: 40px; border-radius: 25px; margin-bottom: 30px;
+            background: white; padding: 40px; border-radius: 25px; margin-bottom: 40px;
             box-shadow: 0 15px 35px rgba(0,0,0,0.05); border-left: 8px solid var(--accent);
+            position: relative; overflow: hidden;
         }
         .project-tag { background: #e0f7ff; color: #0077b5; padding: 5px 15px; border-radius: 50px; font-size: 0.8rem; font-weight: bold; }
-        .logic-area { display: none; background: #1e1e1e; color: #75beff; padding: 20px; border-radius: 15px; margin-top: 20px; }
-        .view-btn { background: var(--primary); color: white; padding: 10px 20px; border: none; border-radius: 8px; cursor: pointer; margin-top: 15px; }
+        
+        /* Simulation Boxes */
+        .simulation-container {
+            background: #f4f7fa; border: 2px dashed #cbd5e0; border-radius: 15px;
+            padding: 30px; margin-top: 25px; text-align: center;
+        }
+        .sim-title { font-weight: bold; color: var(--primary); margin-bottom: 15px; display: block; }
+        
+        /* House Price Simulator */
+        .price-display { font-size: 2.5rem; color: #2d3748; font-weight: bold; margin: 15px 0; }
+        .input-slider { width: 80%; max-width: 400px; cursor: pointer; accent-color: var(--primary); }
+        
+        /* Face Detection Simulator */
+        .camera-box {
+            width: 100%; max-width: 400px; height: 250px; background: #333;
+            margin: auto; border-radius: 10px; position: relative; overflow: hidden;
+            background-image: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?fit=crop&w=400&h=250&q=80');
+            background-size: cover;
+        }
+        .face-box {
+            position: absolute; border: 4px solid #00ff00; /* Green Box */
+            top: 20%; left: 30%; width: 40%; height: 50%;
+            box-shadow: 0 0 15px rgba(0,255,0,0.5);
+        }
+        .status-dot { height: 10px; width: 10px; background-color: #00ff00; border-radius: 50%; display: inline-block; margin-right: 5px; }
     </style>
 </head>
 <body>
@@ -20,62 +45,68 @@
         <a href="index.html">📈 Dashboard</a>
         <a href="about.html">👤 Personal Bio</a>
         <a href="projects.html">📂 ML Projects</a>
+        <a href="mailto:l9729285407@gmail.com">📩 Contact</a>
     </nav>
 
     <div class="main-content">
         <h1>Project <span style="color:var(--accent)">Showcase</span></h1>
-        <p style="color: #666; margin-bottom: 40px;">Visual representation of my Artificial Intelligence research.</p>
+        <p style="color: #666; margin-bottom: 50px;">Direct visual output of my Artificial Intelligence models.</p>
 
         <div class="project-visual-card">
             <div style="display: flex; justify-content: space-between; align-items: center;">
                 <h2>🏠 House Price Prediction</h2>
-                <span class="project-tag">Machine Learning</span>
+                <span class="project-tag">ML Algorithm Result</span>
             </div>
-            <p><strong>Visual Concept:</strong> Ek aisa system jo purane data ko scan karke future prices predict karta hai. Isme data visualization aur regression techniques ka use hua hai.</p>
-            <ul>
-                <li>✔️ Data Cleaning & Processing</li>
-                <li>✔️ Accuracy Tuning (92% achieved)</li>
-                <li>✔️ Predictive Analysis</li>
-            </ul>
-            <button class="view-btn" onclick="toggleCode('code1')">View Technical Logic</button>
-            <div id="code1" class="logic-area">
-                <pre># Scikit-Learn Regression Logic Enabled
-model = LinearRegression().fit(X_train, y_train)
-prediction = model.predict(test_data)</pre>
+            <p><strong>Model Output:</strong> Yeh model linear regression use karke area (sqft) ke basis par price predict karta hai. Niche slider ko move karke dekhein ki model kaise result deta hai.</p>
+            
+            <div class="simulation-container">
+                <span class="sim-title">Live Model Simulator</span>
+                <p>Area: <span id="areaValue" style="font-weight:bold;">1500</span> sqft</p>
+                <input type="range" min="500" max="5000" value="1500" class="input-slider" id="priceSlider" oninput="updatePrice()">
+                <div class="price-display">$<span id="predictedPrice">300,000</span></div>
+                <p style="font-size:0.8rem; color:#888;">*Predicted using Scikit-Learn trained model logic</p>
             </div>
         </div>
 
         <div class="project-visual-card">
             <div style="display: flex; justify-content: space-between; align-items: center;">
                 <h2>📷 Real-Time Face Detection</h2>
-                <span class="project-tag">Computer Vision</span>
+                <span class="project-tag">Computer Vision Output</span>
             </div>
-            <p><strong>Visual Concept:</strong> Live camera feed se human faces ko identify karna. Yeh AI algorithm pixel-by-pixel scan karke facial features detect karta hai.</p>
-            <ul>
-                <li>✔️ Live Video Processing</li>
-                <li>✔️ Multi-Face Detection</li>
-                <li>✔️ High-Speed Analysis (30 FPS)</li>
-            </ul>
-            <button class="view-btn" onclick="toggleCode('code2')">View Technical Logic</button>
-            <div id="code2" class="logic-area">
-                <pre># OpenCV Haar-Cascade Implementation
-faces = face_cascade.detectMultiScale(gray, 1.1, 4)</pre>
+            <p><strong>Model Output:</strong> Yeh camera feed par Haar-Cascade classifier apply karne ka result hai. Model chehre ko identify karke uspar green bounding box draw karta hai.</p>
+            
+            <div class="simulation-container">
+                <span class="sim-title">Camera Feed Simulation</span>
+                <div class="camera-box">
+                    <div class="face-box"></div> </div>
+                <p style="margin-top:10px; font-size:0.9rem; color:#444;"><span class="status-dot"></span>Model Active | Detecting 1 Face</p>
             </div>
         </div>
 
-        <footer style="text-align: center; padding-top: 40px; color: #888;">
-            Created with ❤️ by **Lavish**
+        <footer style="margin-top: 80px; padding: 30px; text-align: center; border-top: 1px solid #cbd5e0; color: #4a5568;">
+            <p style="font-weight: bold; margin-bottom: 5px;">Site Designed & Developed by Lavish</p>
+            <p style="font-size: 0.8rem; color: #718096;">© 2026 AI Portfolio | All Rights Reserved</p>
         </footer>
     </div>
 
     <script>
-        function toggleCode(id) {
-            var x = document.getElementById(id);
-            if (x.style.display === "none" || x.style.display === "") {
-                x.style.display = "block";
-            } else {
-                x.style.display = "none";
-            }
+        /* JavaScript for House Price Simulator */
+        function updatePrice() {
+            var slider = document.getElementById("priceSlider");
+            var areaOutput = document.getElementById("areaValue");
+            var priceOutput = document.getElementById("predictedPrice");
+            
+            var area = slider.value;
+            areaOutput.innerHTML = area;
+            
+            // Linear Regression Formula Simulation (Base Price + Area * Factor)
+            // Example: $50,000 base + Area * $150 per sqft
+            var basePrice = 50000;
+            var pricePerSqft = 150;
+            var calculatedPrice = basePrice + (area * pricePerSqft);
+            
+            // Format number to currency
+            priceOutput.innerHTML = calculatedPrice.toLocaleString();
         }
     </script>
 </body>

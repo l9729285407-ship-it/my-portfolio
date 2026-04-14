@@ -103,3 +103,14 @@ footer {
     width: 100%;
     clear: both;
 }
+/* Sidebar fix for mobile */
+@media (max-width: 768px) {
+    nav { width: 100%; height: auto; position: relative; }
+    .main-content { margin-left: 0; width: 100%; padding: 20px; }
+}
+
+footer {
+    width: 100%;
+    margin-top: 50px;
+    font-weight: bold;
+}

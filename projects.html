@@ -2,64 +2,60 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Projects | Lavish AI</title>
+    <title>Projects | Lavish</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        .code-area { background: #1e1e1e; color: #75beff; padding: 20px; border-radius: 15px; font-family: monospace; overflow-x: auto; margin-top: 15px; border-left: 5px solid var(--accent); }
+    </style>
 </head>
 <body>
     <nav>
-        <div class="logo">LAVISH.AI</div>
-        <div class="menu">
-            <a href="index.html" style="color:white; text-decoration:none; margin-left:20px;">Home</a>
-            <a href="about.html" style="color:white; text-decoration:none; margin-left:20px;">About</a>
-        </div>
+        <div class="logo">L.AI</div>
+        <a href="index.html">📈 Dashboard</a>
+        <a href="about.html">👤 Personal Bio</a>
+        <a href="projects.html">📂 ML Projects</a>
     </nav>
 
-    <div class="container">
-        <h1 style="font-size: 3rem;">My <span style="color: #915EFF;">Projects</span></h1>
-        <p style="color: #aaa;">Click on any project icon to see technical details.</p>
+    <div class="main-content">
+        <h1>Technical <span style="color:var(--accent)">Source Code</span></h1>
+        
+        <div style="background: white; padding: 30px; border-radius: 20px; margin-bottom: 30px;">
+            <h3>🏠 House Price Prediction (Linear Regression)</h3>
+            <p>Full working implementation using Python.</p>
+            <div class="code-area">
+                <pre>
+import pandas as pd
+from sklearn.linear_model import LinearRegression
 
-        <div class="project-grid">
-            <div class="project-card" onclick="openModal('houseModal')">
-                <span class="project-icon">🏠</span>
-                <h3>House Price Prediction</h3>
-                <p>Machine Learning • Regression</p>
+# Training data
+df = pd.DataFrame({'sqft': [1000, 2000, 3000], 'price': [300, 500, 700]})
+model = LinearRegression().fit(df[['sqft']], df['price'])
+
+# Predict price for 1500 sqft
+print(model.predict([[1500]]))
+                </pre>
             </div>
+        </div>
 
-            <div class="project-card" onclick="openModal('faceModal')">
-                <span class="project-icon">📷</span>
-                <h3>Face Detection System</h3>
-                <p>Computer Vision • OpenCV</p>
+        <div style="background: white; padding: 30px; border-radius: 20px;">
+            <h3>📷 Face Detection (OpenCV)</h3>
+            <p>Source for real-time video processing.</p>
+            <div class="code-area">
+                <pre>
+import cv2
+face_cascade = cv2.CascadeClassifier('haarcascade_default.xml')
+cap = cv2.VideoCapture(0)
+
+while True:
+    _, img = cap.read()
+    faces = face_cascade.detectMultiScale(img, 1.1, 4)
+    for (x, y, w, h) in faces:
+        cv2.rectangle(img, (x,y), (x+w, y+h), (0,255,0), 2)
+    cv2.imshow('FaceDet', img)
+    if cv2.waitKey(1) == ord('q'): break
+                </pre>
             </div>
         </div>
     </div>
-
-    <div id="houseModal" class="modal">
-        <div class="modal-content">
-            <span class="close-btn" onclick="closeModal('houseModal')">&times;</span>
-            <h2 style="color:#915EFF;">🏠 House Price Prediction</h2>
-            <hr style="border:0.5px solid #333;">
-            <p><b>Objective:</b> To predict real estate prices using historical data.</p>
-            <p><b>Tech Stack:</b> Python, Scikit-Learn, Pandas, NumPy.</p>
-            <p><b>Accuracy:</b> 92% on test data.</p>
-            <p><b>Key Features:</b> Handles missing values, performs feature scaling, and uses Linear Regression for predictions.</p>
-        </div>
-    </div>
-
-    <div id="faceModal" class="modal">
-        <div class="modal-content">
-            <span class="close-btn" onclick="closeModal('faceModal')">&times;</span>
-            <h2 style="color:#915EFF;">📷 Face Detection System</h2>
-            <hr style="border:0.5px solid #333;">
-            <p><b>Objective:</b> Real-time human face identification via webcam.</p>
-            <p><b>Tech Stack:</b> OpenCV, Python, Haar Cascades.</p>
-            <p><b>Performance:</b> Works at 30 FPS with multiple face tracking.</p>
-            <p><b>Key Features:</b> Live bounding box creation and grayscale conversion for optimized processing.</p>
-        </div>
-    </div>
-
-    <script>
-        function openModal(id) { document.getElementById(id).style.display = "block"; }
-        function closeModal(id) { document.getElementById(id).style.display = "none"; }
-    </script>
 </body>
 </html>

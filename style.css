@@ -86,3 +86,20 @@ nav a:hover { color: var(--accent); transform: scale(1.1); }
     font-size: 0.8rem;
     font-weight: bold;
 }
+.skill-tags a span {
+    transition: 0.3s;
+    cursor: pointer;
+    border: 1px solid var(--accent);
+}
+
+.skill-tags a span:hover {
+    background: var(--accent);
+    color: var(--primary);
+    transform: translateY(-3px);
+    display: inline-block;
+}
+
+footer {
+    width: 100%;
+    clear: both;
+}
